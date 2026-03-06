@@ -194,7 +194,7 @@ export default function Portfolio() {
                         item.style.left = finalLeft + 'px';
                         item.style.transform = 'translate(-50%, -50%)';
 
-                        const coverHTML = project.video
+                        const coverHTML = project.video && !isTouchDevice
                             ? `<video autoplay muted loop playsinline class="img-fade-in" src="${project.video}"></video>`
                             : `<div class="img-placeholder" data-src="${project.image}" data-alt="${project.title}"></div>`;
 
@@ -879,7 +879,7 @@ export default function Portfolio() {
             <div className="header">
                 <div className="logo">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={optimizedSrc('/img/etoile-logo.webp', 256)} alt="ash1999" width={40} height={80} />
+                    <img src={optimizedSrc('/img/etoile-logo.webp', 256)} alt="ash1999" width={80} height={80} />
                 </div>
 
                 {/* FILTER MENU */}
