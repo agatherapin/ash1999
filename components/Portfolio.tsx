@@ -225,7 +225,7 @@ export default function Portfolio() {
                             const video = item.querySelector('video') as HTMLVideoElement | null;
                             if (video) {
                                 video.style.visibility = '';
-                                video.play().catch(() => {});
+                                if (!isTouchDevice) video.play().catch(() => {});
                             }
                         }
 
@@ -251,7 +251,7 @@ export default function Portfolio() {
                                         flipTimers.delete(item);
                                         if (video) {
                                             video.style.visibility = '';
-                                            video.play().catch(() => {});
+                                            if (!isTouchDevice) video.play().catch(() => {});
                                         }
                                     }
                                 }
@@ -266,9 +266,11 @@ export default function Portfolio() {
 
             canvas.appendChild(fragment);
 
-            canvas.querySelectorAll('video').forEach(v => {
-                (v as HTMLVideoElement).play().catch(() => {});
-            });
+            if (!isTouchDevice) {
+                canvas.querySelectorAll('video').forEach(v => {
+                    (v as HTMLVideoElement).play().catch(() => {});
+                });
+            }
         }
 
         // =============================================
@@ -840,11 +842,29 @@ export default function Portfolio() {
         createItems();
         loadImagesAsync();
 
+        let videoObserver: IntersectionObserver | null = null;
+
         if (isTouchDevice) {
             const instructions = instructionsRef.current;
             if (instructions) {
                 instructions.textContent = 'SWIPE TO MOVE · TAP TO FLIP';
             }
+
+            videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target as HTMLVideoElement;
+                    const item = video.closest('.item') as HTMLElement | null;
+                    if (entry.isIntersecting && item && !item.classList.contains('flipped')) {
+                        video.play().catch(() => {});
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, { rootMargin: '50px', threshold: 0 });
+
+            canvas.querySelectorAll('video').forEach(v => {
+                videoObserver!.observe(v);
+            });
         }
 
         if (cursorDot) {
@@ -890,6 +910,7 @@ export default function Portfolio() {
 
             flipTimers.forEach(t => clearTimeout(t));
             flipTimers.clear();
+            if (videoObserver) videoObserver.disconnect();
             canvas.innerHTML = '';
         };
     }, []);
