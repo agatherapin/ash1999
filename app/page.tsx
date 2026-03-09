@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import ErrorBoundary from '@/components/ErrorBoundary';
 
-const Portfolio = dynamic(() => import('@/components/Portfolio'), { ssr: false });
+const Portfolio = dynamic(() => import('@/components/Portfolio'));
 
 export default function Home() {
   return (
