@@ -18,7 +18,7 @@ export const projects: Project[] = [
         title: 'Internship with PMF music label',
         subtitle: 'Jan to March 2025',
         description: 'Created logo and mockups for ThaHomey brand: Rare.',
-        fullDescription: 'Ce projet explore la typographie moderne à travers un glossaire complet. Chaque terme est illustré avec des exemples visuels et des explications détaillées pour faciliter la compréhension.',
+        fullDescription: 'This project explores modern typography through a comprehensive glossary. Each term is illustrated with visual examples and detailed explanations to facilitate understanding.',
         tags: ['Branding'],
         image: '/img/rare-stage/back-cover.webp',
         gallery: [
@@ -146,7 +146,7 @@ export const projects: Project[] = [
     {
         title: 'Drawing gallery',
         subtitle: '2024',
-        description: 'Collection de travaux et dessins variés.',
+        description: 'Collection of various drawings and artworks.',
         tags: ['Illustration'],
         image: '/img/dessins/astronaute.webp',
         gallery: [
