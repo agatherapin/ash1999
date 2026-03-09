@@ -181,7 +181,9 @@ export default function Portfolio() {
                         item.className = 'item';
 
                         const scaledWidth = project.width * scale;
-                        const itemHeight = scaledWidth / project.aspectRatio;
+                        const hasLongDesc = isTouchDevice && project.description.length > 100;
+                        const heightScale = hasLongDesc ? 1.3 : 1;
+                        const itemHeight = (scaledWidth / project.aspectRatio) * heightScale;
                         item.style.width = scaledWidth + 'px';
                         item.style.height = itemHeight + 'px';
 
