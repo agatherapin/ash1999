@@ -17,7 +17,7 @@ export const projects: Project[] = [
     {
         title: 'Internship with PMF music label',
         subtitle: 'Jan to March 2025',
-        description: 'I worked on the logo and mockups for ThaHomey brand: Rare.',
+        description: 'I worked on the logo and mockups for Rare, a brand created by ThaHomey\'s music label.',
         tags: ['Branding'],
         image: '/img/rare-stage/back-cover.webp',
         gallery: [
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     {
         title: 'Happy Birthday lettering',
         subtitle: 'Jan 2024',
-        description: 'Inspired by Copperlate alphabet',
+        description: 'Inspired by the Copperplate alphabet.',
         tags: ['Typography'],
         image: '/img/typographie/hbd-procreate.webp',
         gallery: ['/img/typographie/hbd-manual.webp', '/img/typographie/hbd-procreate.webp'],
@@ -64,7 +64,7 @@ export const projects: Project[] = [
     {
         title: 'Wandanlage',
         subtitle: 'June 2024',
-        description: 'As a great fan of Dieter Rams work, I decided to dedicate this webdesign project to the wall unit he designed for Braun in the 60s.',
+        description: 'As a great fan of Dieter Rams work, I decided to dedicate this web design project to the wall unit he designed for Braun in the 60s.',
         tags: ['Web Design'],
         image: '/img/wandanlage/cover-landing-page.webp',
         gallery: ['vimeo:1166411109', '/img/wandanlage/page-close-up-platine.webp', '/img/wandanlage/page-previsualisation.webp', '/img/wandanlage/page-404.webp', '/img/wandanlage/scroll-horizontal.webp', '/img/wandanlage/footer.webp'],
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     {
         title: 'Pick your poison, Art cover',
         subtitle: 'December 2025',
-        description: 'Fictional cover made with playdough for the amazing song pick your poison, by Killowen.',
+        description: 'Fictional cover made with playdough for the song Pick Your Poison, by Killowen.',
         tags: ['Music', 'Mix media', 'Typography'],
         image: '/img/pick-your-poison/cover.webp',
         gallery: ['/img/pick-your-poison/cover.webp', '/img/pick-your-poison/head-dead.webp', '/img/pick-your-poison/head-heart.webp', '/img/pick-your-poison/mockup-cover.webp'],
@@ -133,7 +133,7 @@ export const projects: Project[] = [
     {
         title: 'Poster Bushi - Batman',
         subtitle: '2024',
-        description: 'Using Carta Nueva font from Sharp Type',
+        description: 'Poster design using Carta Nueva font from Sharp Type.',
         tags: ['Music'],
         image: '/img/music-visuals/poster-bushi-batman.webp',
         gallery: ['/img/music-visuals/poster-bushi-batman.webp', '/img/music-visuals/cd-mockup-bushi-batman.webp', '/img/music-visuals/jolagreen-poster.webp'],
@@ -144,11 +144,12 @@ export const projects: Project[] = [
     },
     {
         title: 'Drawing gallery',
-        subtitle: '2024',
+        subtitle: 'From 2020 to 2025',
         description: 'Collection of various drawings and artworks.',
         tags: ['Illustration'],
         image: '/img/dessins/astronaute.webp',
         gallery: [
+            '/img/dessins/chromakopia.webp',
             '/img/dessins/jardin-des-plantes.webp', '/img/dessins/japan_street.webp',
             '/img/dessins/astronaute.webp', '/img/dessins/metropolitan.webp',
             '/img/dessins/samourai.webp', '/img/dessins/profil-encre-de-chine.webp',

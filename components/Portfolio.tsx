@@ -16,6 +16,9 @@ export default function Portfolio() {
     const modalRef = useRef<HTMLDivElement>(null);
     const modalBodyRef = useRef<HTMLDivElement>(null);
     const modalCloseRef = useRef<HTMLButtonElement>(null);
+    const profileToggleRef = useRef<HTMLButtonElement>(null);
+    const profileModalRef = useRef<HTMLDivElement>(null);
+    const profileModalCloseRef = useRef<HTMLButtonElement>(null);
     const fullscreenViewerRef = useRef<HTMLDivElement>(null);
     const fullscreenImgRef = useRef<HTMLImageElement>(null);
     const fullscreenCloseRef = useRef<HTMLButtonElement>(null);
@@ -32,6 +35,9 @@ export default function Portfolio() {
         const modal = modalRef.current!;
         const modalBody = modalBodyRef.current!;
         const modalClose = modalCloseRef.current!;
+        const profileToggle = profileToggleRef.current!;
+        const profileModal = profileModalRef.current!;
+        const profileModalClose = profileModalCloseRef.current!;
         const fullscreenViewer = fullscreenViewerRef.current!;
         const fullscreenImg = fullscreenImgRef.current!;
         const fullscreenClose = fullscreenCloseRef.current!;
@@ -350,6 +356,7 @@ export default function Portfolio() {
         document.addEventListener('mouseup', handleMouseUp);
 
         function handleWheel(e: WheelEvent) {
+            if ((e.target as Element).closest('.modal-gallery, .modal-content')) return;
             e.preventDefault();
 
             scrollLeftVal -= e.deltaX;
@@ -571,6 +578,14 @@ export default function Portfolio() {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
 
+            const gallery = modalBody.querySelector('.modal-gallery') as HTMLElement | null;
+            if (gallery) {
+                gallery.addEventListener('wheel', (e: WheelEvent) => {
+                    e.stopPropagation();
+                    gallery.scrollLeft += e.deltaY + e.deltaX;
+                }, { passive: true });
+            }
+
             const imageOnlyUrls = project.gallery
                 ? project.gallery.filter(item => !item.startsWith('vimeo:') && !item.startsWith('video:'))
                 : [];
@@ -603,11 +618,45 @@ export default function Portfolio() {
         }
         modal.addEventListener('click', handleModalBackdropClick);
 
+        // =============================================
+        // PROFILE MODAL
+        // =============================================
+        function openProfileModal() {
+            filterContainer.classList.remove('open');
+            filterToggle.classList.remove('active');
+            profileModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProfileModal() {
+            profileModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function handleProfileToggleClick() {
+            openProfileModal();
+        }
+        profileToggle.addEventListener('click', handleProfileToggleClick);
+
+        function handleProfileModalCloseClick() {
+            closeProfileModal();
+        }
+        profileModalClose.addEventListener('click', handleProfileModalCloseClick);
+
+        function handleProfileModalBackdropClick(e: MouseEvent) {
+            if (e.target === profileModal) closeProfileModal();
+        }
+        profileModal.addEventListener('click', handleProfileModalBackdropClick);
+
         function handleKeyDown(e: KeyboardEvent) {
             if (fullscreenViewer.classList.contains('active')) {
                 if (e.key === 'Escape') closeFullscreen();
                 if (e.key === 'ArrowRight') navigateFullscreen(1);
                 if (e.key === 'ArrowLeft') navigateFullscreen(-1);
+                return;
+            }
+            if (profileModal.classList.contains('active')) {
+                if (e.key === 'Escape') closeProfileModal();
                 return;
             }
             if (modal.classList.contains('active')) {
@@ -901,6 +950,9 @@ export default function Portfolio() {
 
             modalClose.removeEventListener('click', handleModalCloseClick);
             modal.removeEventListener('click', handleModalBackdropClick);
+            profileToggle.removeEventListener('click', handleProfileToggleClick);
+            profileModalClose.removeEventListener('click', handleProfileModalCloseClick);
+            profileModal.removeEventListener('click', handleProfileModalBackdropClick);
             document.removeEventListener('keydown', handleKeyDown);
 
             fullscreenClose.removeEventListener('click', handleFullscreenCloseClick);
@@ -931,11 +983,20 @@ export default function Portfolio() {
                     <img src={optimizedSrc('/img/etoile-logo.webp', 256)} alt="ash1999" width={80} height={80} />
                 </div>
 
-                {/* FILTER MENU */}
-                <div className="filter-wrapper">
-                    <button className="filter-toggle" ref={filterToggleRef}>Filters</button>
-                    <div className="filter-container" ref={filterContainerRef}>
-                        <button className="filter-btn active" data-filter="all">All</button>
+                {/* RIGHT CONTROLS */}
+                <div className="header-right">
+                    <button className="profile-toggle" ref={profileToggleRef} aria-label="À propos">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="5.5" r="2.5" stroke="currentColor" strokeWidth="1.5"/>
+                            <path d="M3 14.5c0-2.761 2.239-5 5-5s5 2.239 5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                        </svg>
+                    </button>
+                    {/* FILTER MENU */}
+                    <div className="filter-wrapper">
+                        <button className="filter-toggle" ref={filterToggleRef}>Filters</button>
+                        <div className="filter-container" ref={filterContainerRef}>
+                            <button className="filter-btn active" data-filter="all">All</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -957,6 +1018,28 @@ export default function Portfolio() {
                 <div className="modal-content">
                     <button className="modal-close" ref={modalCloseRef}>×</button>
                     <div className="modal-body" ref={modalBodyRef}></div>
+                </div>
+            </div>
+
+            {/* PROFILE MODAL */}
+            <div className="modal" ref={profileModalRef}>
+                <div className="modal-content profile-modal-content">
+                    <button className="modal-close" ref={profileModalCloseRef}>×</button>
+                    <div className="modal-body">
+                        <p className="profile-bio">
+Hello! <br />
+My name is Agathe and I&apos;m a French junior graphic designer. I like to explore multiple mediums and techniques. I&apos;ve been particularly drawn to interactive design, motion design &amp; web design lately. I love working with various media and blending traditional and digital approaches. <br />
+                        </p>
+
+                        <p className="profile-bio">
+I consider myself a versatile designer, eager to push creativity across multiple disciplines. Feel free to reach out if you&apos;re interested in collaborating. I love meeting new creatives!
+                        </p>
+
+                        <p className="profile-contact">
+                            <a href="https://www.instagram.com/ash1999__/" target="_blank" rel="noopener noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>follow me on Instagram: @ash1999__</a> <br />
+                            <a href="https://www.linkedin.com/in/agathe-rapin/" target="_blank" rel="noopener noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>find me on LinkedIn: Agathe Rapin</a> <br />
+                        </p>
+                    </div>
                 </div>
             </div>
 

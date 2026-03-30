@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         description: 'Branding, typography, print, web design, motion design, illustration and mixed media projects.',
         images: [
             {
-                url: '/img/social-share.png',
+                url: '/img/social-share.webp',
                 width: 1200,
                 height: 630,
                 alt: 'ash1999 logo',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         description: 'Branding, typography, print, web design, motion design, illustration and mixed media projects.',
         images: [
             {
-                url: '/img/social-share.png',
+                url: '/img/social-share.webp',
                 width: 1200,
                 height: 630,
                 alt: 'ash1999 logo',

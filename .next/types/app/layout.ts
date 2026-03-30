@@ -1,4 +1,4 @@
-// File: /Users/agatherapin/Library/Mobile Documents/com~apple~CloudDocs/Design/Projets perso/Logo Ash1999/ash1999/ash1999-new/app/layout.tsx
+// File: /Users/agatherapin/Library/Mobile Documents/com~apple~CloudDocs/Design/Portfolio - ash1999/ash1999 - site/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
