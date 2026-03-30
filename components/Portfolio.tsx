@@ -604,6 +604,10 @@ export default function Portfolio() {
         function closeModal() {
             modal.classList.remove('active');
             document.body.style.overflow = '';
+            modalBody.querySelectorAll('video').forEach(v => {
+                v.pause();
+                v.muted = true;
+            });
         }
 
         function handleModalCloseClick() {
