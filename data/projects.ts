@@ -168,7 +168,7 @@ export const projects: Project[] = [
         tags: ['Interactive', 'Motion Design'],
         image: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/GaussianSplat_Agathe.mp4',
         video: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/GaussianSplat_Agathe.mp4',
-        gallery: ['video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/GaussianSplat_Agathe.mp4'],
+        gallery: ['video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/GaussianSplat_Agathe.mp4',  'video:/img/interactive%20design/fridge-details-scan.mp4', '/img/interactive%20design/profile-scan-1.jpeg', '/img/interactive%20design/profile-scan.jpeg', 'video:/img/interactive%20design/img-flowers.mp4', 'video:/img/interactive%20design/shoes-scan.mp4', 'video:/img/interactive%20design/media-pipe-exp.mp4'],
         width: 290,
         aspectRatio: 1.2,
         top: 20,
@@ -182,7 +182,7 @@ export const projects: Project[] = [
         image: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/RAPIN_AGATHE_MOTION.mp4',
         video: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/RAPIN_AGATHE_MOTION.mp4',
         gallery: ['video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/RAPIN_AGATHE_MOTION.mp4'],
-        width: 290,
+        width: 340,
         aspectRatio: 1.778,
         top: 90,
         left: 78

@@ -200,7 +200,7 @@ export default function Portfolio() {
                         item.style.transform = 'translate(-50%, -50%)';
 
                         const coverHTML = project.video
-                            ? `<video muted loop playsinline class="img-fade-in" src="${project.video}"></video>`
+                            ? `<video muted loop playsinline preload="metadata" class="img-fade-in" src="${project.video}"></video>`
                             : `<div class="img-placeholder" data-src="${project.image}" data-alt="${project.title}"></div>`;
 
                         item.innerHTML = `
@@ -263,6 +263,8 @@ export default function Portfolio() {
                                 }
                             }
                         });
+
+                        item.addEventListener('mouseenter', () => preloadGallery(project));
 
                         fragment.appendChild(item);
                         itemsCache.push(item);
@@ -552,7 +554,7 @@ export default function Portfolio() {
                     </div>`;
                 } else if (item.startsWith('video:')) {
                     const videoSrc = item.replace('video:', '');
-                    return `<div class="modal-gallery-item modal-video">
+                    return `<div class="modal-gallery-item">
                         <video controls autoplay loop muted preload="metadata">
                             <source src="${videoSrc}" type="video/mp4">
                         </video>
@@ -902,23 +904,23 @@ export default function Portfolio() {
             if (instructions) {
                 instructions.textContent = 'SWIPE TO MOVE · TAP TO FLIP';
             }
-
-            videoObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const video = entry.target as HTMLVideoElement;
-                    const item = video.closest('.item') as HTMLElement | null;
-                    if (entry.isIntersecting && item && !item.classList.contains('flipped')) {
-                        video.play().catch(() => {});
-                    } else {
-                        video.pause();
-                    }
-                });
-            }, { rootMargin: '50px', threshold: 0 });
-
-            canvas.querySelectorAll('video').forEach(v => {
-                videoObserver!.observe(v);
-            });
         }
+
+        videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target as HTMLVideoElement;
+                const item = video.closest('.item') as HTMLElement | null;
+                if (entry.isIntersecting && item && !item.classList.contains('flipped')) {
+                    video.play().catch(() => {});
+                } else {
+                    video.pause();
+                }
+            });
+        }, { rootMargin: '100px', threshold: 0 });
+
+        canvas.querySelectorAll('video').forEach(v => {
+            videoObserver!.observe(v);
+        });
 
         if (cursorDot) {
             cursorDot.style.transform = `translate(calc(${window.innerWidth / 2}px - 50%), calc(${window.innerHeight / 2}px - 50%))`;
