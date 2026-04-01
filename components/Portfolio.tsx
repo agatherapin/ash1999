@@ -553,7 +553,7 @@ export default function Portfolio() {
                 } else if (item.startsWith('video:')) {
                     const videoSrc = item.replace('video:', '');
                     return `<div class="modal-gallery-item modal-video">
-                        <video controls autoplay loop muted>
+                        <video controls autoplay loop muted preload="metadata">
                             <source src="${videoSrc}" type="video/mp4">
                         </video>
                     </div>`;

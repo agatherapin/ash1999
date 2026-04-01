@@ -523,18 +523,16 @@ body {
     gap: 10px;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-snap-type: x mandatory;
     padding-bottom: 20px;
     max-height: 450px;
     touch-action: pan-x;
-    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
 }
 
 .modal-gallery-item {
     flex: 0 0 auto;
     width: auto;
     height: 400px;
-    scroll-snap-align: start;
 }
 
 .modal-gallery-item img {
