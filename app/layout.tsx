@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     metadataBase: new URL('https://ash1999.vercel.app'),
     icons: {
         icon: '/img/mini logo.webp',
+        apple: '/apple-touch-icon.png',
     },
     title: 'ash1999 - Portfolio',
     description: 'Portfolio of ash1999 — branding, typography, print, web design, motion design, illustration and mixed media projects.',
