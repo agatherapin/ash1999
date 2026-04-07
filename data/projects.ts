@@ -142,7 +142,7 @@ export const projects: Project[] = [
         image: '/img/chting/expo-1.webp',
         gallery: [
             '/img/chting/expo-1.webp', '/img/chting/expo-3.webp', 'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/motion-interferences.mp4',
-        'public/img/chting/culture.webp', '/img/chting/food.webp', '/img/chting/musique.webp', '/img/chting/nature.webp', '/img/chting/social.webp', 'public/img/chting/sport.webp'],
+        '/img/chting/culture.webp', '/img/chting/food.webp', '/img/chting/musique.webp', '/img/chting/nature.webp', '/img/chting/social.webp', '/img/chting/sport.webp'],
         width: 240,
         aspectRatio: 0.707,
         top: 32,
