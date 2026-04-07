@@ -94,9 +94,9 @@ export const projects: Project[] = [
         tags: ['Branding', 'Print', 'Motion Design'],
         image: '/img/interferences/motion-interferences.mp4',
         video: '/img/interferences/motion-interferences.mp4',
-        gallery: ['/img/interferences/affiche-la-cale.webp', '/img/interferences/affiche-interferences.webp', 'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/interferences-video.jpg', 'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/interferences-video.jpg', '/img/interferences/flyer-face.webp', '/img/interferences/flyer-verso.webp', 'video:/img/interferences/motion-interferences.mp4'],
+        gallery: ['/img/interferences/affiche-la-cale.webp', '/img/interferences/affiche-interferences.webp', '/img/interferences/flyer-face.webp', '/img/interferences/flyer-verso.webp', 'video:/img/interferences/motion-interferences.mp4'],
         width: 240,
-        aspectRatio: 0.7,   
+        aspectRatio: 0.7,
         top: 17,
         left: 20
     },
@@ -139,7 +139,7 @@ export const projects: Project[] = [
         tags: ['Branding', 'Print', 'Illustration'],
         image: '/img/chting/expo-1.webp',
         gallery: [
-            '/img/chting/expo-1.webp', '/img/chting/expo-3.webp', 'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/interferences-video.jpg',
+            '/img/chting/expo-1.webp', '/img/chting/expo-3.webp', 'video:/img/chting/Motion.mp4',
             '/img/chting/culture.jpg', '/img/chting/food.jpg', '/img/chting/musique.jpg', '/img/chting/sport.jpg', '/img/chting/nature.jpg', '/img/chting/social.jpg',],
         width: 240,
         aspectRatio: 0.707,
@@ -155,7 +155,7 @@ export const projects: Project[] = [
         gallery: [
             '/img/dessins/chromakopia.webp',
             '/img/dessins/jardin-des-plantes.webp', '/img/dessins/japan_street.webp',
-            '/img/dessins/astronaute.webp', '/img/dessins/metropolitan.webp', 'public/img/dessins/early-dinner-front.webp',
+            '/img/dessins/astronaute.webp', '/img/dessins/metropolitan.webp',
             '/img/dessins/samourai.webp', '/img/dessins/profil-encre-de-chine.webp',
             '/img/dessins/tombeau-des-lucioles.webp',
         ],
