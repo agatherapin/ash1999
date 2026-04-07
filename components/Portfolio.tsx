@@ -184,6 +184,7 @@ export default function Portfolio() {
                     projects.forEach((project) => {
                         const item = document.createElement('div');
                         item.className = 'item';
+                        const isFeatured = ['La Pampa introduction', 'Gaussian Splatting'].includes(project.title);
 
                         const scaledWidth = project.width * scale;
                         const itemHeight = scaledWidth / project.aspectRatio;
@@ -208,6 +209,7 @@ export default function Portfolio() {
                                 <div class="card-face card-front">
                                     <div class="item-image">
                                         ${coverHTML}
+                                        ${isFeatured ? '<span class="featured-badge">NEW</span>' : ''}
                                         <div class="overlay">
                                             <h3>${project.title}</h3>
                                             <div class="date">${project.subtitle}</div>
@@ -540,6 +542,10 @@ export default function Portfolio() {
         function openModal(project: Project) {
             preloadGallery(project);
 
+            const galleryTextHTML = project.fullDescription
+                ? `<div class="modal-gallery-item modal-gallery-text"><p>${project.fullDescription}</p></div>`
+                : '';
+
             const galleryHTML = project.gallery ? project.gallery.map(item => {
                 if (item.startsWith('vimeo:')) {
                     const videoId = item.replace('vimeo:', '');
@@ -574,7 +580,7 @@ export default function Portfolio() {
                     <p class="modal-subtitle">${project.subtitle}</p>
                     <div class="modal-tags">${tagsHTML}</div>
                 </div>
-                ${galleryHTML ? `<div class="modal-gallery">${galleryHTML}</div>` : ''}
+                ${galleryHTML ? `<div class="modal-gallery">${galleryTextHTML}${galleryHTML}</div>` : ''}
             `;
 
             modal.classList.add('active');
@@ -710,10 +716,17 @@ export default function Portfolio() {
         }
         fullscreenClose.addEventListener('click', handleFullscreenCloseClick);
 
-        function handleFullscreenBackdropClick(e: MouseEvent) {
-            if (e.target === fullscreenViewer) closeFullscreen();
+        function handleFullscreenViewerClick(e: MouseEvent) {
+            if ((e.target as Element).closest('.fullscreen-close')) return;
+            if (fullscreenImages.length <= 1) return;
+            const clickX = e.clientX;
+            if (clickX < window.innerWidth / 2) {
+                navigateFullscreen(-1);
+            } else {
+                navigateFullscreen(1);
+            }
         }
-        fullscreenViewer.addEventListener('click', handleFullscreenBackdropClick);
+        fullscreenViewer.addEventListener('click', handleFullscreenViewerClick);
 
         let fsStartX = 0;
         function handleFsTouchStart(e: TouchEvent) {
@@ -962,7 +975,7 @@ export default function Portfolio() {
             document.removeEventListener('keydown', handleKeyDown);
 
             fullscreenClose.removeEventListener('click', handleFullscreenCloseClick);
-            fullscreenViewer.removeEventListener('click', handleFullscreenBackdropClick);
+            fullscreenViewer.removeEventListener('click', handleFullscreenViewerClick);
             fullscreenViewer.removeEventListener('touchstart', handleFsTouchStart);
             fullscreenViewer.removeEventListener('touchend', handleFsTouchEnd);
 

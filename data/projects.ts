@@ -53,14 +53,15 @@ export const projects: Project[] = [
         title: 'La Pampa introduction',
         subtitle: 'March 2026',
         description: 'Video for my project La Pampa, a media for local artists and events.',
+        fullDescription: 'La Pampa is an independent media dedicated to local artists and cultural events. It was born from the desire to give visibility to emerging creatives who operate outside mainstream circuits. The project combines editorial content, motion design and visual identity into a coherent whole.<a href="https://lapampamedia.vercel.app/" target="_blank" rel="noopener noreferrer">Visit the website.</a>',
         tags: ['Motion Design'],
         image: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/motion-la-pampa.mp4',
         video: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/motion-la-pampa.mp4',
         gallery: ['video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/motion-la-pampa.mp4'],
-        width: 350,
+        width: 380,
         aspectRatio: 1.778,
         top: 80,
-        left: 55
+        left: 50
     },
     {
         title: 'Wandanlage',
@@ -117,7 +118,7 @@ export const projects: Project[] = [
         width: 340,
         aspectRatio: 1.3,
         top: 70,
-        left: 33
+        left: 25
     },
     {
         title: 'Pick your poison, Art cover',
@@ -132,12 +133,17 @@ export const projects: Project[] = [
         left: 1
     },
     {
-        title: 'Poster Bushi - Batman',
-        subtitle: '2024',
-        description: 'Poster design using Carta Nueva font from Sharp Type.',
-        tags: ['Music'],
-        image: '/img/music-visuals/poster-bushi-batman.webp',
-        gallery: ['/img/music-visuals/poster-bushi-batman.webp', '/img/music-visuals/cd-mockup-bushi-batman.webp', '/img/music-visuals/jolagreen-poster.webp'],
+        title: 'Chtiiing ! Nantes festival of creativity',
+        subtitle: 'April 2025',
+        description: 'We created a series of 6 posters to promote the city and encourage students to come to Nantes.',
+        tags: ['Branding', 'Print', 'Illustration'],
+        image: '/img/chting/expo-1.webp',
+        gallery: [
+            '/img/chting/expo-1.webp', '/img/chting/expo-2.webp',
+            '/img/chting/expo-3.webp', '/img/chting/culture.webp',
+            '/img/chting/food.webp', '/img/chting/musique.webp', 
+            '/img/chting/sport.webp',
+            '/img/chting/nature.webp', '/img/chting/social.webp'],
         width: 240,
         aspectRatio: 0.707,
         top: 32,
@@ -154,7 +160,7 @@ export const projects: Project[] = [
             '/img/dessins/jardin-des-plantes.webp', '/img/dessins/japan_street.webp',
             '/img/dessins/astronaute.webp', '/img/dessins/metropolitan.webp',
             '/img/dessins/samourai.webp', '/img/dessins/profil-encre-de-chine.webp',
-            '/img/dessins/tombeau-des-lucioles.webp', '/img/typographie/hbd-procreate.webp',
+            '/img/dessins/tombeau-des-lucioles.webp',
         ],
         width: 240,
         aspectRatio: 0.707,

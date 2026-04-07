@@ -250,6 +250,7 @@ body {
     contain: layout style paint;
 }
 
+
 .item.hidden {
     opacity: 0;
     pointer-events: none;
@@ -378,6 +379,24 @@ body {
     color: #d4d4d8;
     line-height: 1.2;
 }
+
+
+.featured-badge {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: #ea3030;
+    color: #fff;
+    font-family: var(--font-inter), "neue-haas-grotesk-display", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    z-index: 5;
+    pointer-events: none;
+}
+
 
 .view-more-btn {
     width: 100%;
@@ -558,6 +577,27 @@ body {
     height: 100%;
 }
 
+.modal-gallery-text {
+    width: 280px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    padding-right: 20px;
+}
+
+.modal-gallery-text p {
+    font-family: var(--font-inter), "neue-haas-grotesk-display", sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: left;
+}
+
+.modal-gallery-text a {
+    color: #fff;
+    text-underline-offset: 3px;
+}
+
 .modal-gallery::-webkit-scrollbar {
     height: 8px;
 }
@@ -619,6 +659,11 @@ body {
     opacity: 0;
     transition: opacity 0.3s ease;
     touch-action: none;
+    cursor: e-resize;
+}
+
+.fullscreen-viewer:has(img:not([hidden])) {
+    cursor: e-resize;
 }
 
 .fullscreen-viewer.active {
@@ -659,6 +704,38 @@ body {
     color: rgba(255, 255, 255, 0.9);
     font-size: 14px;
     font-family: var(--font-inter), "neue-haas-grotesk-display", sans-serif;
+}
+
+.fullscreen-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    z-index: 10;
+    line-height: 1;
+}
+
+.fullscreen-nav:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.fullscreen-prev {
+    left: 20px;
+}
+
+.fullscreen-next {
+    right: 20px;
 }
 
 /* =============================================
