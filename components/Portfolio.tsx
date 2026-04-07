@@ -101,6 +101,10 @@ export default function Portfolio() {
         const TILE_WIDTH = (window.innerWidth + 300) * canvasScale;
         const TILE_HEIGHT = (window.innerHeight + 300) * canvasScale;
 
+        // Center the initial view on the main project cluster (Wandanlage, Skyjo, etc.)
+        scrollLeftVal = -(0.60 * TILE_WIDTH - window.innerWidth / 2);
+        scrollTopVal = -(0.99 * TILE_HEIGHT - window.innerHeight / 2);
+
         // =============================================
         // FILTERS
         // =============================================
