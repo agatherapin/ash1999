@@ -40,15 +40,22 @@ def convert_image(filepath):
     try:
         img = Image.open(filepath)
 
+        # Préserve le profil colorimétrique (sinon les couleurs partent en cacahuète
+        # sur les écrans wide-gamut : un WebP sans profil n'est pas traité comme du sRGB).
+        icc_profile = img.info.get("icc_profile")
+        save_kwargs = {"quality": QUALITY, "method": 4}
+        if icc_profile:
+            save_kwargs["icc_profile"] = icc_profile
+
         if ext == ".gif" and hasattr(img, "n_frames") and img.n_frames > 1:
-            img.save(webp_path, "WEBP", save_all=True, quality=QUALITY, method=4)
+            img.save(webp_path, "WEBP", save_all=True, **save_kwargs)
             print(f"  ✅ GIF animé → {os.path.basename(webp_path)}")
         else:
             if img.mode in ("RGBA", "LA", "PA"):
-                img.save(webp_path, "WEBP", quality=QUALITY, method=4)
+                img.save(webp_path, "WEBP", **save_kwargs)
             else:
                 img = img.convert("RGB")
-                img.save(webp_path, "WEBP", quality=QUALITY, method=4)
+                img.save(webp_path, "WEBP", **save_kwargs)
             print(f"  ✅ {os.path.basename(filepath)} → {os.path.basename(webp_path)}")
 
         converted += 1
