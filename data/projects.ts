@@ -94,7 +94,7 @@ export const projects: Project[] = [
         tags: ['Branding', 'Print', 'Motion Design'],
         image: '/img/interferences/motion-interferences.mp4',
         video: '/img/interferences/motion-interferences.mp4',
-        gallery: ['/img/interferences/affiche-la-cale.webp', '/img/interferences/affiche-interferences.webp', 
+        gallery: ['/img/interferences/affiche-final.webp', '/img/interferences/affiche-interferences.webp', 
             'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/interferences-video.jpg', 'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/interference-video-1.mp4',
             '/img/interferences/flyer-face.webp', '/img/interferences/flyer-verso.webp', 'video:/img/interferences/motion-interferences.mp4'],
         width: 240,
