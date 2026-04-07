@@ -634,6 +634,63 @@ body {
     margin-bottom: 28px;
 }
 
+.profile-experience {
+    margin-bottom: 28px;
+}
+
+.profile-exp-label {
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 16px;
+}
+
+.profile-exp-item {
+    margin-bottom: 20px;
+}
+
+.profile-exp-header {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.profile-exp-title {
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.profile-exp-badge {
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ec4899;
+    white-space: nowrap;
+}
+
+.profile-exp-desc {
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    margin-bottom: 4px;
+}
+
+.profile-exp-date {
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+}
+
 .profile-contact {
     font-family: "neue-haas-grotesk-display", sans-serif;
     font-weight: 400;

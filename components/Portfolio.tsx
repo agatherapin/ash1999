@@ -1047,12 +1047,30 @@ export default function Portfolio() {
                     <div className="modal-body">
                         <p className="profile-bio">
 Hello! <br />
-My name is Agathe and I&apos;m a French junior graphic designer. I like to explore multiple mediums and techniques. I&apos;ve been particularly drawn to interactive design, motion design &amp; web design lately. I love working with various media and blending traditional and digital approaches. <br />
+My name is Agathe and I&apos;m a French junior graphic designer. I like to explore multiple mediums and techniques. I&apos;ve been particularly drawn to interactive design, motion design &amp; web design lately. I love working with various media and blending traditional and digital approaches. Feel free to reach out if you're interested in collaborating. I love meeting new creatives!<br />
                         </p>
 
-                        <p className="profile-bio">
-I consider myself a versatile designer, eager to push creativity across multiple disciplines. Feel free to reach out if you&apos;re interested in collaborating. I love meeting new creatives!
-                        </p>
+                        <div className="profile-experience">
+                            <p className="profile-exp-label">Experiences</p>
+
+                            <div className="profile-exp-item">
+                                <div className="profile-exp-header">
+                                    <span className="profile-exp-title">Graphic &amp; web designer</span>
+                                    <span className="profile-exp-badge">★ INTERNSHIP</span>
+                                </div>
+                                <p className="profile-exp-desc">Tamisée, an association for the promotion of local underground culture and music.</p>
+                                <p className="profile-exp-date">April 2026 – June 2026</p>
+                            </div>
+
+                            <div className="profile-exp-item">
+                                <div className="profile-exp-header">
+                                    <span className="profile-exp-title">Graphic &amp; branding designer</span>
+                                    <span className="profile-exp-badge">★ INTERNSHIP</span>
+                                </div>
+                                <p className="profile-exp-desc">Propulsion Music Family, an independent rap label with ThaHomey as main artist. Merch rebranding, logo creation and mockups.</p>
+                                <p className="profile-exp-date">February 2025 – March 2025</p>
+                            </div>
+                        </div>
 
                         <p className="profile-contact">
                             <a href="https://www.instagram.com/ash1999__/" target="_blank" rel="noopener noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>follow me on Instagram: @ash1999__</a> <br />
