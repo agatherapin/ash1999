@@ -139,7 +139,7 @@ export const projects: Project[] = [
         tags: ['Branding', 'Print', 'Illustration'],
         image: '/img/chting/expo-1.webp',
         gallery: [
-            '/img/chting/expo-1.webp', '/img/chting/expo-3.webp', 'video:/img/chting/Motion.mp4',
+            '/img/chting/expo-1.webp', '/img/chting/expo-3.webp', 'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/motion-interferences.mp4',
             '/img/chting/culture.jpg', '/img/chting/food.jpg', '/img/chting/musique.jpg', '/img/chting/sport.jpg', '/img/chting/nature.jpg', '/img/chting/social.jpg',],
         width: 240,
         aspectRatio: 0.707,
