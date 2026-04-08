@@ -21,6 +21,7 @@ export default function Portfolio() {
     const profileModalCloseRef = useRef<HTMLButtonElement>(null);
     const fullscreenViewerRef = useRef<HTMLDivElement>(null);
     const fullscreenImgRef = useRef<HTMLImageElement>(null);
+    const fullscreenVideoRef = useRef<HTMLVideoElement>(null);
     const fullscreenCloseRef = useRef<HTMLButtonElement>(null);
     const fullscreenCounterRef = useRef<HTMLDivElement>(null);
     const instructionsRef = useRef<HTMLDivElement>(null);
@@ -40,12 +41,13 @@ export default function Portfolio() {
         const profileModalClose = profileModalCloseRef.current!;
         const fullscreenViewer = fullscreenViewerRef.current!;
         const fullscreenImg = fullscreenImgRef.current!;
+        const fullscreenVideo = fullscreenVideoRef.current!;
         const fullscreenClose = fullscreenCloseRef.current!;
         const fullscreenCounter = fullscreenCounterRef.current!;
         const cursorDot = cursorDotRef.current;
         const loader = loaderRef.current;
 
-        let fullscreenImages: string[] = [];
+        let fullscreenMedia: {url: string, isVideo: boolean}[] = [];
         let fullscreenIndex = 0;
 
         // =============================================
@@ -565,7 +567,7 @@ export default function Portfolio() {
                 } else if (item.startsWith('video:')) {
                     const videoSrc = item.replace('video:', '');
                     return `<div class="modal-gallery-item">
-                        <video controls autoplay loop muted preload="metadata">
+                        <video controls loop muted preload="metadata" playsinline>
                             <source src="${videoSrc}" type="video/mp4">
                         </video>
                     </div>`;
@@ -598,16 +600,20 @@ export default function Portfolio() {
                 }, { passive: true });
             }
 
-            const imageOnlyUrls = project.gallery
-                ? project.gallery.filter(item => !item.startsWith('vimeo:') && !item.startsWith('video:'))
+            const lightboxMedia = project.gallery
+                ? project.gallery
+                    .filter(item => !item.startsWith('vimeo:'))
+                    .map(item => item.startsWith('video:')
+                        ? { url: item.replace('video:', ''), isVideo: true }
+                        : { url: item, isVideo: false })
                 : [];
 
-            if (imageOnlyUrls.length > 0) {
-                const galleryItems = modalBody.querySelectorAll('.modal-gallery-item:not(.modal-video)');
+            if (lightboxMedia.length > 0) {
+                const galleryItems = modalBody.querySelectorAll('.modal-gallery-item:not(.modal-video):not(.modal-gallery-text)');
                 galleryItems.forEach((item, i) => {
                     (item as HTMLElement).style.cursor = 'pointer';
                     item.addEventListener('click', () => {
-                        openFullscreen(imageOnlyUrls, i);
+                        openFullscreen(lightboxMedia, i);
                     });
                 });
             }
@@ -687,12 +693,12 @@ export default function Portfolio() {
         document.addEventListener('keydown', handleKeyDown);
 
         // =============================================
-        // FULLSCREEN IMAGE VIEWER
+        // FULLSCREEN MEDIA VIEWER (images + videos)
         // =============================================
-        function openFullscreen(images: string[], index: number) {
-            fullscreenImages = images;
+        function openFullscreen(media: {url: string, isVideo: boolean}[], index: number) {
+            fullscreenMedia = media;
             fullscreenIndex = index;
-            updateFullscreenImage();
+            updateFullscreenMedia();
             fullscreenViewer.classList.add('active');
         }
 
@@ -700,19 +706,38 @@ export default function Portfolio() {
             fullscreenViewer.classList.remove('active');
             fullscreenImg.hidden = true;
             fullscreenImg.removeAttribute('src');
+            fullscreenVideo.hidden = true;
+            fullscreenVideo.pause();
+            fullscreenVideo.removeAttribute('src');
         }
 
         function navigateFullscreen(direction: number) {
+            // Pause current video before navigating
+            if (!fullscreenVideo.hidden) {
+                fullscreenVideo.pause();
+            }
             fullscreenIndex += direction;
-            if (fullscreenIndex >= fullscreenImages.length) fullscreenIndex = 0;
-            if (fullscreenIndex < 0) fullscreenIndex = fullscreenImages.length - 1;
-            updateFullscreenImage();
+            if (fullscreenIndex >= fullscreenMedia.length) fullscreenIndex = 0;
+            if (fullscreenIndex < 0) fullscreenIndex = fullscreenMedia.length - 1;
+            updateFullscreenMedia();
         }
 
-        function updateFullscreenImage() {
-            fullscreenImg.hidden = false;
-            fullscreenImg.src = fullscreenImages[fullscreenIndex];
-            fullscreenCounter.textContent = `${fullscreenIndex + 1} / ${fullscreenImages.length}`;
+        function updateFullscreenMedia() {
+            const item = fullscreenMedia[fullscreenIndex];
+            fullscreenCounter.textContent = `${fullscreenIndex + 1} / ${fullscreenMedia.length}`;
+            if (item.isVideo) {
+                fullscreenImg.hidden = true;
+                fullscreenImg.removeAttribute('src');
+                fullscreenVideo.src = item.url;
+                fullscreenVideo.hidden = false;
+                fullscreenVideo.play().catch(() => {});
+            } else {
+                fullscreenVideo.hidden = true;
+                fullscreenVideo.pause();
+                fullscreenVideo.removeAttribute('src');
+                fullscreenImg.src = item.url;
+                fullscreenImg.hidden = false;
+            }
         }
 
         function handleFullscreenCloseClick() {
@@ -722,7 +747,7 @@ export default function Portfolio() {
 
         function handleFullscreenViewerClick(e: MouseEvent) {
             if ((e.target as Element).closest('.fullscreen-close')) return;
-            if (fullscreenImages.length <= 1) return;
+            if (fullscreenMedia.length <= 1) return;
             const clickX = e.clientX;
             if (clickX < window.innerWidth / 2) {
                 navigateFullscreen(-1);
@@ -1089,6 +1114,7 @@ My name is Agathe and I&apos;m a French junior graphic designer. I like to explo
                 <button className="fullscreen-close" ref={fullscreenCloseRef}>×</button>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img ref={fullscreenImgRef} alt="" hidden />
+                <video ref={fullscreenVideoRef} loop playsInline controls hidden />
                 <div className="fullscreen-counter" ref={fullscreenCounterRef}></div>
             </div>
 

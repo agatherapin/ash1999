@@ -728,7 +728,8 @@ body {
     opacity: 1;
 }
 
-.fullscreen-viewer img {
+.fullscreen-viewer img,
+.fullscreen-viewer video {
     max-width: 95vw;
     max-height: 90vh;
     object-fit: contain;
