@@ -50,15 +50,20 @@ export const projects: Project[] = [
         left: 50
     },
     {
-        title: 'La Pampa introduction',
+        title: 'La Pampa',
         subtitle: 'March 2026',
         description: 'Video for my project La Pampa, a media for local artists and events.',
         fullDescription: 'La Pampa is an independent media dedicated to local artists and cultural events. It was born from the desire to give visibility to emerging creatives who operate outside mainstream circuits. The project combines editorial content, motion design and visual identity into a coherent whole.<a href="https://lapampamedia.vercel.app/" target="_blank" rel="noopener noreferrer">Visit the website.</a>',
-        tags: ['Motion Design'],
+        tags: ['Motion Design', 'Print', 'Webdesign', 'Interactive'],
         image: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/motion-la-pampa.mp4',
         video: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/motion-la-pampa.mp4',
-        gallery: ['video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/motion-la-pampa.mp4'],
-        width: 380,
+        gallery: [
+            'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/motion-la-pampa.mp4',
+            '/img/la_pampa/page_1.webp', '/img/la_pampa/page_2.webp',
+            '/img/la_pampa/page_3.webp', '/img/la_pampa/page_4.webp',
+            '/img/la_pampa/page_5.webp', 'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/demo_pampa.mp4'
+        ],
+        width: 340,
         aspectRatio: 1.778,
         top: 80,
         left: 50
@@ -79,7 +84,7 @@ export const projects: Project[] = [
         title: 'Skyjo',
         subtitle: 'April 2025',
         description: 'The aim of this workshop was to create a brand new, fun and attractive design for this extraordinary game!',
-        tags: ['Packaging', 'Branding', 'Print'],
+        tags: ['Packaging', 'Branding', 'Print', 'Illustration'],
         image: '/img/skyjo/jeu-complet-cover.webp',
         gallery: ['/img/skyjo/jeu-entier.webp', '/img/skyjo/packaging.webp', '/img/skyjo/mise-en-scene.webp', '/img/skyjo/cartes.webp', '/img/skyjo/jeu-complet-range.webp', '/img/skyjo/detail-packaging.webp'],
         width: 240,
@@ -126,7 +131,7 @@ export const projects: Project[] = [
         title: 'Pick your poison, Art cover',
         subtitle: 'December 2025',
         description: 'Fictional cover made with playdough for the song Pick Your Poison, by Killowen.',
-        tags: ['Music', 'Mix media', 'Typography'],
+        tags: ['Mix media', 'Typography'],
         image: '/img/pick-your-poison/cover.webp',
         gallery: ['/img/pick-your-poison/cover.webp', '/img/pick-your-poison/head-dead.webp', '/img/pick-your-poison/head-heart.webp', '/img/pick-your-poison/mockup-cover.webp'],
         width: 330,
