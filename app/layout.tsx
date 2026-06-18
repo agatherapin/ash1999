@@ -1,21 +1,29 @@
 import type { Metadata } from 'next';
-import { Instrument_Serif, Inter } from 'next/font/google';
+import localFont from 'next/font/local';
+import CustomCursor from '@/components/CustomCursor';
 import './globals.css';
 
-const instrumentSerif = Instrument_Serif({
-    subsets: ['latin'],
-    weight: ['400'],
-    style: ['normal', 'italic'],
-    variable: '--font-instrument-serif',
-    display: 'optional',
-    preload: true,
-});
-
-const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
-    display: 'optional',
-    preload: true,
+const neueHaas = localFont({
+    src: [
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-XXThin.ttf', weight: '100', style: 'normal' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-XXThinItalic.ttf', weight: '100', style: 'italic' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-XThin.ttf', weight: '200', style: 'normal' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-XThinItalic.ttf', weight: '200', style: 'italic' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-Thin.ttf', weight: '300', style: 'normal' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-ThinItalic.ttf', weight: '300', style: 'italic' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-Light.ttf', weight: '350', style: 'normal' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-LightItalic.ttf', weight: '350', style: 'italic' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-Roman.ttf', weight: '400', style: 'normal' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-RomanItalic.ttf', weight: '400', style: 'italic' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-Mediu.ttf', weight: '500', style: 'normal' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-MediumItalic.ttf', weight: '500', style: 'italic' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-Bold.ttf', weight: '700', style: 'normal' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-BoldItalic.ttf', weight: '700', style: 'italic' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-Black.ttf', weight: '900', style: 'normal' },
+        { path: '../public/fonts/neuehaasgrotesk/NeueHaasDisplay-BlackItalic.ttf', weight: '900', style: 'italic' },
+    ],
+    variable: '--font-neue-haas',
+    display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -62,8 +70,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="fr" className={`${instrumentSerif.variable} ${inter.variable}`}>
-            <body>{children}</body>
+        <html lang="fr" className={neueHaas.variable}>
+            <body>
+                <CustomCursor />
+                {children}
+            </body>
         </html>
     );
 }

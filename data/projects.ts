@@ -1,8 +1,8 @@
 export interface Project {
+    slug: string;
     title: string;
     subtitle: string;
     description: string;
-    fullDescription?: string;
     tags: string[];
     image: string;
     video?: string;
@@ -11,10 +11,12 @@ export interface Project {
     aspectRatio: number;
     top: number;
     left: number;
+    featured?: boolean;
 }
 
 export const projects: Project[] = [
     {
+        slug: 'pmf-internship',
         title: 'Internship with PMF music label',
         subtitle: 'Jan to March 2025',
         description: 'I worked on the logo and mockups for Rare, a brand created by ThaHomey\'s music label.',
@@ -32,11 +34,12 @@ export const projects: Project[] = [
             '/img/rare-stage/rapport-9.webp'
         ],
         width: 240,
-        aspectRatio: 0.8,
-        top: 45,
-        left: 60
+        aspectRatio: 3 / 4,
+        top: 47,
+        left: 47
     },
     {
+        slug: 'suburban',
         title: 'Suburban',
         subtitle: 'Jan 2024',
         description: 'Trifold brochure to promote a fictional festival around rap music. Suburban is the name of a fictitious organization about urban culture, streetwear & rap music.',
@@ -45,15 +48,15 @@ export const projects: Project[] = [
         video: '/img/suburban/titre-motion.mp4',
         gallery: ['/img/suburban/exterieur-mockup-suburban.webp', '/img/suburban/interieur-mockup-suburban.webp', '/img/suburban/logo.webp'],
         width: 240,
-        aspectRatio: 0.8,
-        top: 8,
-        left: 50
+        aspectRatio: 3 / 4,
+        top: 12,
+        left: 53
     },
     {
+        slug: 'la-pampa',
         title: 'La Pampa',
         subtitle: 'March 2026',
         description: 'Video for my project La Pampa, a media for local artists and events.',
-        fullDescription: 'La Pampa is an independent media dedicated to local artists and cultural events. It was born from the desire to give visibility to emerging creatives who operate outside mainstream circuits. The project combines editorial content, motion design and visual identity into a coherent whole.<a href="https://lapampamedia.vercel.app/" target="_blank" rel="noopener noreferrer">Visit the website.</a>',
         tags: ['Motion Design', 'Print', 'Webdesign', 'Interactive'],
         image: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/motion-la-pampa.mp4',
         video: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/motion-la-pampa.mp4',
@@ -63,36 +66,28 @@ export const projects: Project[] = [
             '/img/la_pampa/page_3.webp', '/img/la_pampa/page_4.webp',
             '/img/la_pampa/page_5.webp', 'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/demo_pampa.mp4'
         ],
-        width: 340,
-        aspectRatio: 1.778,
+        width: 320,
+        aspectRatio: 4 / 3,
         top: 80,
-        left: 50
+        left: 53,
+        featured: true
     },
     {
+        slug: 'wandanlage',
         title: 'Wandanlage',
         subtitle: 'June 2024',
         description: 'As a great fan of Dieter Rams work, I decided to dedicate this web design project to the wall unit he designed for Braun in the 60s.',
         tags: ['Web Design'],
-        image: '/img/wandanlage/cover-landing-page.webp',
+        image: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/wandalange_maquette_v1%20(1080p).mp4',
+        video: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/wandalange_maquette_v1%20(1080p).mp4',
         gallery: ['video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/wandalange_maquette_v1%20(1080p).mp4', '/img/wandanlage/page-close-up-platine.webp', '/img/wandanlage/page-previsualisation.webp', '/img/wandanlage/page-404.webp', '/img/wandanlage/scroll-horizontal.webp', '/img/wandanlage/footer.webp'],
-        width: 340,
-        aspectRatio: 1.7,
-        top: 65,
-        left: 74
+        width: 320,
+        aspectRatio: 4 / 3,
+        top: 40,
+        left: 82,
     },
     {
-        title: 'Skyjo',
-        subtitle: 'April 2025',
-        description: 'The aim of this workshop was to create a brand new, fun and attractive design for this extraordinary game!',
-        tags: ['Packaging', 'Branding', 'Print', 'Illustration'],
-        image: '/img/skyjo/jeu-complet-cover.webp',
-        gallery: ['/img/skyjo/jeu-entier.webp', '/img/skyjo/packaging.webp', '/img/skyjo/mise-en-scene.webp', '/img/skyjo/cartes.webp', '/img/skyjo/jeu-complet-range.webp', '/img/skyjo/detail-packaging.webp'],
-        width: 240,
-        aspectRatio: 0.8,
-        top: 55,
-        left: 92
-    },
-    {
+        slug: 'interferences',
         title: 'Interférences exhibition',
         subtitle: 'November 2024',
         description: 'The Interférences exhibition revolves around mapping and motion design, and showcases the work of third-year motion design students at E-artsup.',
@@ -103,11 +98,12 @@ export const projects: Project[] = [
             'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/interference-video-1.mp4',
             '/img/interferences/flyer-face.webp', '/img/interferences/flyer-verso.webp', 'video:/img/interferences/motion-interferences.mp4'],
         width: 240,
-        aspectRatio: 0.7,
-        top: 17,
-        left: 20
+        aspectRatio: 3 / 4,
+        top: 18,
+        left: 12
     },
     {
+        slug: 'typographic-lexicon',
         title: 'Typographic Lexicon',
         subtitle: 'October 2023',
         description: 'This lexicon is designed to help students learn about typography. It covers the essentials of typographic vocabulary and technical terms, and traces the history of typefaces.',
@@ -122,69 +118,13 @@ export const projects: Project[] = [
             '/img/lexique-typographique/lexique-typo-9.webp', '/img/lexique-typographique/lexique-typo-10.webp',
             '/img/lexique-typographique/lexique-typo-12.webp', '/img/lexique-typographique/lexique-typo-15.webp',
         ],
-        width: 340,
-        aspectRatio: 1.3,
-        top: 70,
-        left: 25
+        width: 320,
+        aspectRatio: 4 / 3,
+        top: 81,
+        left: 3,
     },
     {
-        title: 'Pick your poison, Art cover',
-        subtitle: 'December 2025',
-        description: 'Fictional cover made with playdough for the song Pick Your Poison, by Killowen.',
-        tags: ['Mix media', 'Typography'],
-        image: '/img/pick-your-poison/cover.webp',
-        gallery: ['/img/pick-your-poison/cover.webp', '/img/pick-your-poison/head-dead.webp', '/img/pick-your-poison/head-heart.webp', '/img/pick-your-poison/mockup-cover.webp'],
-        width: 330,
-        aspectRatio: 1.0,
-        top: 87,
-        left: 1
-    },
-    {
-        title: 'Chtiiing ! Nantes festival of creativity',
-        subtitle: 'April 2025',
-        description: 'We created a series of 6 posters to promote the city and encourage students to come to Nantes.',
-        tags: ['Branding', 'Print', 'Illustration'],
-        image: '/img/chting/expo-1.webp',
-        gallery: [
-            '/img/chting/expo-1.webp', '/img/chting/expo-3.webp', 'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/motion-interferences.mp4',
-        '/img/chting/culture.webp', '/img/chting/food.webp', '/img/chting/musique.webp', '/img/chting/nature.webp', '/img/chting/social.webp', '/img/chting/sport.webp'],
-        width: 240,
-        aspectRatio: 0.707,
-        top: 32,
-        left: 5
-    },
-    {
-        title: 'Drawing gallery',
-        subtitle: 'From 2020 to 2025',
-        description: 'Collection of various drawings and artworks.',
-        tags: ['Illustration'],
-        image: '/img/dessins/astronaute.webp',
-        gallery: [
-            '/img/dessins/chromakopia.webp',
-            '/img/dessins/jardin-des-plantes.webp', '/img/dessins/japan_street.webp',
-            '/img/dessins/astronaute.webp', '/img/dessins/metropolitan.webp',
-            '/img/dessins/samourai.webp', '/img/dessins/profil-encre-de-chine.webp',
-            '/img/dessins/tombeau-des-lucioles.webp',
-        ],
-        width: 240,
-        aspectRatio: 0.707,
-        top: 32,
-        left: 36
-    },
-    {
-        title: 'Gaussian Splatting',
-        subtitle: 'February 2026',
-        description: '3D scanning and audio-reactive experiments in TouchDesigner using Gaussian Splats, during a workshop at Stéréolux, Nantes.',
-        tags: ['Interactive', 'Motion Design'],
-        image: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/GaussianSplat_Agathe.mp4',
-        video: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/GaussianSplat_Agathe.mp4',
-        gallery: ['video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/GaussianSplat_Agathe.mp4',  'video:/img/interactive%20design/fridge-details-scan.mp4', '/img/interactive%20design/profile-scan-1.webp', '/img/interactive%20design/profile-scan.webp', 'video:/img/interactive%20design/img-flowers.mp4', 'video:/img/interactive%20design/shoes-scan.mp4', 'video:/img/interactive%20design/media-pipe-exp.mp4'],
-        width: 290,
-        aspectRatio: 1.2,
-        top: 20,
-        left: 85
-    },
-    {
+        slug: 'motion-for-muji',
         title: 'Motion for Muji',
         subtitle: 'December 2025',
         description: 'Short video to promote the Wall Mounted CD Player from Muji.',
@@ -192,9 +132,30 @@ export const projects: Project[] = [
         image: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/RAPIN_AGATHE_MOTION.mp4',
         video: 'https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/RAPIN_AGATHE_MOTION.mp4',
         gallery: ['video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/RAPIN_AGATHE_MOTION.mp4'],
-        width: 340,
-        aspectRatio: 1.778,
-        top: 90,
-        left: 78
+        width: 320,
+        aspectRatio: 4 / 3,
+        top: 3,
+        left: 80,
+    },
+    {
+        slug: 'tamisee',
+        title: 'Tamisée',
+        subtitle: 'May 2026',
+        description: 'Merchandising design and creation for Tamisée.',
+        tags: ['Branding'],
+        image: '/img/tamisee/scan-leo.mp4',
+        video: '/img/tamisee/scan-leo.mp4',
+        gallery: [
+            '/img/tamisee/img8474.webp', '/img/tamisee/img8412.webp',
+            '/img/tamisee/img8408.webp', '/img/tamisee/img8310.webp',
+            '/img/tamisee/img8317.webp', '/img/tamisee/img8344.webp',
+            '/img/tamisee/img8245.webp', '/img/tamisee/img8399.webp',
+            '/img/tamisee/img8230.webp'
+        ],
+        width: 240,
+        aspectRatio: 3 / 4,
+        top: 58,
+        left: 25,
+        featured: true
     }
 ];
