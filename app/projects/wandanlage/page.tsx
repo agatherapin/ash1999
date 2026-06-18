@@ -1,4 +1,8 @@
+import type { Metadata } from 'next';
 import ProjectShowcase from '@/components/ProjectShowcase';
+import { projectMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = projectMetadata('wandanlage');
 
 const images = [
     'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/wandalange_maquette_v1%20(1080p).mp4',

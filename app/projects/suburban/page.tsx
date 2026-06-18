@@ -1,4 +1,8 @@
+import type { Metadata } from 'next';
 import ProjectShowcase from '@/components/ProjectShowcase';
+import { projectMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = projectMetadata('suburban');
 
 const images = [
     '/img/suburban/exterieur-mockup-suburban.webp',

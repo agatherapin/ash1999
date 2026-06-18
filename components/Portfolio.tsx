@@ -169,8 +169,10 @@ export default function Portfolio() {
             for (let tileY = -1; tileY <= 1; tileY++) {
                 for (let tileX = -1; tileX <= 1; tileX++) {
                     projects.forEach((project) => {
-                        const item = document.createElement('div');
+                        const item = document.createElement('a');
                         item.className = 'item';
+                        item.href = `/projects/${project.slug}`;
+                        item.draggable = false;
                         const scaledWidth = project.width * scale;
                         const itemHeight = scaledWidth / project.aspectRatio;
                         item.style.width = scaledWidth + 'px';
@@ -205,7 +207,9 @@ export default function Portfolio() {
                             ${project.featured ? '<span class="featured-badge">★</span>' : ''}
                         `;
 
-                        item.addEventListener('click', () => {
+                        item.addEventListener('click', (e) => {
+                            if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+                            e.preventDefault();
                             if (!hasMoved) {
                                 router.push(`/projects/${project.slug}`);
                             }
@@ -721,9 +725,7 @@ export default function Portfolio() {
             {/* HEADER */}
             <div className="header">
                 <div className="header-bio">
-                    <p>
-                        <strong>ASH1999 graphic &amp; web designer<br /></strong>
-                    </p>
+                    <h1 className="header-bio-title">ASH1999 graphic &amp; web designer</h1>
                     <p>
                         ★ Intern at Tamisée: association dedicated to promoting local underground music. Social content, graphism, branding, photography & artistic direction.<br />
                         

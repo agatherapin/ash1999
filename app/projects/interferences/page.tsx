@@ -1,4 +1,8 @@
+import type { Metadata } from 'next';
 import ProjectShowcase from '@/components/ProjectShowcase';
+import { projectMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = projectMetadata('interferences');
 
 const images = [
     '/img/interferences/affiche-la-cale.webp',

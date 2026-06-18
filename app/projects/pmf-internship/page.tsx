@@ -1,4 +1,8 @@
+import type { Metadata } from 'next';
 import ProjectShowcase from '@/components/ProjectShowcase';
+import { projectMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = projectMetadata('pmf-internship');
 
 const images = [
     '/img/rare-stage/front-cover.webp',

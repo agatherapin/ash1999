@@ -285,7 +285,7 @@ export default function ProjectShowcase({
                         <img
                             key={src}
                             src={url}
-                            alt=""
+                            alt={`${titleLines[0]} — visual ${index + 1}`}
                             loading="lazy"
                             className={className}
                             onClick={openLightbox}
@@ -306,7 +306,7 @@ export default function ProjectShowcase({
                                             {isVideo ? (
                                                 <video src={project.image} autoPlay loop muted playsInline />
                                             ) : (
-                                                <img src={project.image} alt="" loading="lazy" />
+                                                <img src={project.image} alt={project.title} loading="lazy" />
                                             )}
                                         </div>
                                         <span className="showcase-related-title">{project.title}</span>
@@ -359,7 +359,7 @@ export default function ProjectShowcase({
                             // eslint-disable-next-line @next/next/no-img-element
                             <img
                                 src={url}
-                                alt=""
+                                alt={`${titleLines[0]} — visual ${lightboxIndex + 1}`}
                                 className={`showcase-lightbox-media${zoomed ? ' showcase-lightbox-media--zoomed' : ''}`}
                                 onClick={(e) => {
                                     e.stopPropagation();

@@ -1,4 +1,8 @@
+import type { Metadata } from 'next';
 import ProjectShowcase from '@/components/ProjectShowcase';
+import { projectMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = projectMetadata('la-pampa');
 
 const images = [
     'video:https://pub-4640cb8748ff42a1bb9564c86066b471.r2.dev/motion-la-pampa.mp4',
@@ -11,6 +15,7 @@ const images = [
 ];
 
 const credits = [
+    
     'La Pampa is an independent media dedicated to local artists and cultural events. It was born from the desire to give visibility to emerging creatives who operate outside mainstream circuits.',
     '<br><br>The project combines editorial content, motion design and visual identity into a coherent whole. The whole project has been imagined, created, written and developped by me @ash1999__',
     '<br>featured artists: @juliedoriath, @luciepng, @kuro_222, Aiman Khalid,',

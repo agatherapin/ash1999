@@ -58,6 +58,12 @@ body {
     text-align: justify;
 }
 
+.header-bio-title {
+    font: inherit;
+    font-weight: 700;
+    text-align: justify;
+}
+
 .header-bio a {
     pointer-events: auto;
     color: inherit;
@@ -264,6 +270,10 @@ body {
     perspective: 1000px;
     cursor: pointer;
     contain: layout style;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    -webkit-user-drag: none;
 }
 
 

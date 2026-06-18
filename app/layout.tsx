@@ -27,16 +27,16 @@ const neueHaas = localFont({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://ash1999.vercel.app'),
+    metadataBase: new URL('https://ash1999.com'),
     icons: {
         icon: '/img/mini logo.webp',
         apple: '/apple-touch-icon.png',
     },
     title: 'ash1999 - Portfolio',
-    description: 'Portfolio of ash1999 — branding, typography, print, web design, motion design, illustration and mixed media projects.',
+    description: 'Ash1999 - freelance graphic & web designer based in Nantes, France. Versatile creative: motion, branding, print, web, mixed media & typography. Open to work.',
     openGraph: {
         title: 'ash1999 - Portfolio',
-        description: 'Branding, typography, print, web design, motion design, illustration and mixed media projects.',
+        description: 'Ash1999 - freelance graphic & web designer based in Nantes, France. Versatile creative: motion, branding, print, web, mixed media & typography. Open to work.',
         images: [
             {
                 url: '/img/social-share.webp',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary',
         title: 'ash1999 - Portfolio',
-        description: 'Branding, typography, print, web design, motion design, illustration and mixed media projects.',
+        description: 'Ash1999 - freelance graphic & web designer based in Nantes, France. Versatile creative: motion, branding, print, web, mixed media & typography. Open to work.',
         images: [
             {
                 url: '/img/social-share.webp',
@@ -64,6 +64,17 @@ export const metadata: Metadata = {
     },
 };
 
+const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'ASH1999',
+    jobTitle: 'Graphic & web designer',
+    description: 'Freelance graphic & web designer based in Nantes, France. Versatile creative: motion, branding, print, web, mixed media & typography.',
+    url: 'https://ash1999.com',
+    email: 'mailto:agathe.rapin@outlook.fr',
+    sameAs: ['https://www.instagram.com/ash1999__/'],
+};
+
 export default function RootLayout({
     children,
 }: {
@@ -72,6 +83,10 @@ export default function RootLayout({
     return (
         <html lang="fr" className={neueHaas.variable}>
             <body>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+                />
                 <CustomCursor />
                 {children}
             </body>
