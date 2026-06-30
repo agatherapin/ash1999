@@ -738,7 +738,7 @@ export default function Portfolio() {
                         Based in Nantes, France<br />
                         link with me<br />
                         <a href="https://www.instagram.com/ash1999__/" target="_blank" rel="noopener noreferrer">@ash1999__</a><br />
-                        <a href="mailto:agathe.rapin@outlook.fr">agathe.rapin@outlook.fr</a>
+                        <a href="mailto:contact@ash1999.com">contact@ash1999.com</a>
                     </p>
                 </div>
 
@@ -791,7 +791,7 @@ export default function Portfolio() {
                             Based in Nantes, France<br />
                             link with me<br />
                             <a href="https://www.instagram.com/ash1999__/" target="_blank" rel="noopener noreferrer" style={{color: 'inherit', textDecoration: 'none'}}>@ash1999__</a><br />
-                            <a href="mailto:agathe.rapin@outlook.fr" style={{color: 'inherit', textDecoration: 'none'}}>agathe.rapin@outlook.fr</a>
+                            <a href="mailto:contact@ash1999.com" style={{color: 'inherit', textDecoration: 'none'}}>contact@ash1999.com</a>
                         </p>
                     </div>
                 </div>
